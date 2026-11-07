@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10121d" />
+  <meta name="description" content="Una felicitación de cumpleaños muy especial." />
+  <title>Una sorpresa para ti ✉️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="cover-page">
+  <div class="ambient glow-left"></div><div class="ambient glow-right"></div>
+  <main class="cover-scene">
+    <div class="doodle doodle-hardhat" aria-hidden="true"><svg viewBox="0 0 120 95" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 64c1-29 17-45 41-45s40 16 41 45"/><path d="M48 20v-9h24v9M60 13v39M12 69c23-9 73-9 96 0 2 6-4 10-11 10H23c-8 0-13-4-11-10Z"/><path d="M35 35l-7 24M85 35l7 24"/></svg></div>
+    <div class="doodle doodle-gear" aria-hidden="true">⚙</div>
+    <div class="doodle doodle-factory" aria-hidden="true"><svg viewBox="0 0 150 105" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M13 93V44l33 18V44l34 18V38l25 13V10h24v83H13ZM105 10V2h24v8M13 93h123"/><path d="M24 74h14v12H24zM53 74h14v12H53zM82 74h14v12H82zM111 74h14v12h-14z"/></svg></div>
+    <div class="doodle doodle-piano" aria-hidden="true"><svg viewBox="0 0 140 90" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M9 16h122v65H9zM29 17v64m20-64v64m20-64v64m20-64v64m20-64v64"/><path fill="currentColor" d="M24 17h11v38H24zM44 17h11v38H44zM83 17h11v38H83zM103 17h11v38h-11z"/></svg></div>
+    <div class="doodle doodle-taco" aria-hidden="true"><svg viewBox="0 0 130 95" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M13 76c3-37 27-61 57-58 27 3 44 29 47 58H13Z"/><path d="M24 69c11-25 28-37 48-36 18 1 29 16 34 36"/><path d="M34 55c8-11 10 1 19-8 9-8 13 8 21 0s12 7 22 3M34 66l10-5 8 6 9-6 10 6 10-6 9 5"/></svg></div>
+
+    <header class="cover-heading">
+      <span class="small-kicker">ALGUIEN MUY ESPECIAL ESTÁ DE FIESTA</span>
+      <h1>¡Feliz <span>Cumpleaños!</span></h1>
+      <p>Entre proyectos, melodías y unos buenos tacos…<br />hay un mensaje esperando por ti.</p>
+    </header>
+
+    <section class="envelope-area" aria-label="Carta de cumpleaños">
+      <span class="sparkle sparkle-one" aria-hidden="true">✧</span><span class="sparkle sparkle-two" aria-hidden="true">✦</span>
+      <button type="button" class="envelope-button" id="openEnvelope" aria-label="Abrir sobre de cumpleaños">
+        <span class="envelope" aria-hidden="true">
+          <span class="envelope-back"></span>
+          <span class="letter"><span class="letter-heart">🫅</span><span>Para alguien<br />extraordinario</span></span>
+          <span class="envelope-flap"></span>
+          <span class="envelope-front"></span>
+          <span class="envelope-seal">♜</span>
+        </span>
+      </button>
+      <button class="open-cta" id="openLetter" type="button">Abrir carta <span aria-hidden="true">↗</span></button>
+      <p class="tap-hint">Toca el sobre para descubrir tu sorpresa</p>
+    </section>
+    <div class="desk-details" aria-hidden="true"><span>♫</span><span>⚙</span><span>✧</span></div>
+  </main>
+</body>
+</html>

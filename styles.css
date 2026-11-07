@@ -1,0 +1,1447 @@
+:root {
+    --bg: #10121d;
+    --cream: #fbe2c4;
+    --cream-muted: #d8bfa7;
+    --gold: #f6ba67;
+    --paper: #f2d6b1;
+    --red: #8b343b;
+    --line: #6c5360;
+    --font-body: "DM Sans",Arial,sans-serif;
+    --font-hand: "Kalam","Comic Sans MS",cursive;
+}
+
+/* ──────── 02. ESTILOS GENERALES ──────── */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button,a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+/* ──────── 03. FONDO Y DECORACIÓN ──────── */
+
+.ambient {
+    pointer-events: none;
+    position: fixed;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(105px);
+    opacity: .20;
+    z-index: -1;
+}
+
+.glow-left {
+    left: -300px;
+    bottom: -210px;
+    background: #c47830;
+}
+
+.glow-right {
+    right: -320px;
+    top: 10%;
+    background: #704e88;
+}
+
+.small-kicker {
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: .23em;
+    font-size: .70rem;
+}
+
+.cover-page:before,.letter-page:before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: .23;
+    pointer-events: none;
+    background-image: radial-gradient(#e5c4ad .6px,transparent .7px);
+    background-size: 31px 31px;
+    z-index: -1;
+}
+
+/* ──────── 04. PORTADA Y TÍTULO ──────── */
+
+.cover-scene {
+    position: relative;
+    min-height: 100svh;
+    max-width: 1250px;
+    margin: auto;
+    padding: clamp(45px,7vh,84px) 20px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-heading {
+    text-align: center;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.cover-heading h1,.birthday-heading h1 {
+    font-family: var(--font-hand);
+    font-weight: 400;
+    font-size: clamp(3.6rem,8.7vw,6.8rem);
+    line-height: .99;
+    letter-spacing: -.05em;
+    margin: 22px 0 18px;
+    color: var(--cream);
+    transform: rotate(-2deg);
+}
+
+.cover-heading h1 span {
+    display: block;
+}
+
+.cover-heading p {
+    color: #f2dec7;
+    line-height: 1.7;
+    font-size: clamp(1rem,1.6vw,1.23rem);
+    margin: 0;
+}
+
+.doodle {
+    position: absolute;
+    color: #a68182;
+    opacity: .8;
+    pointer-events: none;
+}
+
+.doodle svg {
+    width: 100%;
+    height: auto;
+}
+
+.doodle-hardhat {
+    left: 5%;
+    top: 16%;
+    width: 110px;
+    transform: rotate(-10deg);
+}
+
+.doodle-gear {
+    right: 8%;
+    top: 16%;
+    font-size: 110px;
+    font-weight: 200;
+}
+
+.doodle-factory {
+    right: 4%;
+    top: 47%;
+    width: 145px;
+}
+
+.doodle-piano {
+    left: 5%;
+    bottom: 12%;
+    width: 170px;
+    transform: rotate(-14deg);
+}
+
+.doodle-taco {
+    left: 4%;
+    top: 55%;
+    width: 115px;
+    transform: rotate(10deg);
+}
+
+/* ──────── 05. SOBRE INTERACTIVO ──────── */
+
+.envelope-area {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.envelope-button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    width: min(420px,78vw);
+    height: min(280px,52vw);
+    padding: 0;
+    perspective: 900px;
+    filter: drop-shadow(0 22px 24px #0008);
+    transition: transform .3s;
+}
+
+.envelope-button:hover {
+    transform: translateY(-7px);
+}
+
+.envelope {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg,#c69875,#f1cba7);
+    border: 2px solid #f5d4ad;
+    border-radius: 5px;
+}
+
+.letter {
+    position: absolute;
+    left: 11%;
+    right: 11%;
+    height: 78%;
+    bottom: 5%;
+    border-radius: 3px;
+    background: #fff4dd;
+    color: #653b34;
+    box-shadow: 0 1px 8px #0003;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: clamp(16px,2vw,23px);
+    transition: transform 1s cubic-bezier(.2,.7,.2,1);
+    z-index: 2;
+}
+
+.letter-heart {
+    color: #a84548;
+    font-size: 30px;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(148deg,transparent 49.7%,#d9ac89 50%) left bottom/50% 100% no-repeat,linear-gradient(212deg,transparent 49.7%,#ddb18f 50%) right bottom/50% 100% no-repeat,linear-gradient(0deg,#edc09b,#edc09b);
+    clip-path: polygon(0 0,50% 60%,100% 0,100% 100%,0 100%);
+    border-radius: 0 0 5px 5px;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: 5;
+    background: linear-gradient(145deg,#f7d8b6,#dbad8b);
+    clip-path: polygon(0 0,100% 0,50% 85%);
+    transform-origin: 50% 0%;
+    transition: transform .7s cubic-bezier(.2,.6,.2,1),z-index 0s .35s;
+    filter: drop-shadow(0 4px 5px #0004);
+}
+
+.envelope-seal {
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    z-index: 6;
+    transform: translate(-50%,-50%);
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 29px;
+    color: #f9c497;
+    background: radial-gradient(circle at 35% 30%,#ad5353,#642330);
+    border: 4px double #d9a27c;
+    box-shadow: 0 3px 6px #0006;
+    transition: opacity .25s;
+}
+
+.envelope-button.opening .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-button.opening .envelope-seal {
+    opacity: 0;
+}
+
+.envelope-button.opening .letter {
+    transform: translateY(-70%);
+    transition-delay: .30s;
+}
+
+.open-cta,.celebrate-button {
+    margin-top: 40px;
+    border: 1.5px solid var(--cream);
+    background: #201d27;
+    color: var(--cream);
+    padding: 13px 31px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: var(--font-hand);
+    font-size: 1.35rem;
+    box-shadow: 0 0 16px #e8ae7738;
+    transition: transform .2s,background .2s,box-shadow .2s;
+}
+
+.open-cta:hover,.celebrate-button:hover {
+    background: #392b32;
+    transform: translateY(-3px);
+    box-shadow: 0 0 24px #e8ae7770;
+}
+
+.open-cta span {
+    margin-left: 12px;
+}
+
+.tap-hint {
+    font-size: .83rem;
+    color: #bda8a0;
+    margin: 17px 0 0;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 48px;
+    color: var(--gold);
+    z-index: -1;
+    animation: twinkle 2.5s infinite alternate;
+}
+
+.sparkle-one {
+    left: -75px;
+    top: 35px;
+}
+
+.sparkle-two {
+    right: -80px;
+    bottom: 65px;
+    animation-delay: .7s;
+}
+
+.desk-details {
+    position: absolute;
+    bottom: 20px;
+    right: 10%;
+    display: flex;
+    gap: 22px;
+    color: #83666b;
+    font-size: 22px;
+}
+
+/* ──────── 07. ANIMACIONES ──────── */
+
+@keyframes twinkle {
+    from {
+        transform: scale(.8);
+        opacity: .4;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* ──────── 08. SEGUNDA PÁGINA — ESTRUCTURA Y ENCABEZADO ──────── */
+
+.birthday-content {
+    max-width: 1120px;
+    padding: 24px 30px 70px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .79rem;
+    letter-spacing: .06em;
+    color: #bba6a7;
+}
+
+.back-link {
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color .2s;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+.topbar-label {
+    letter-spacing: .18em;
+    font-size: .7rem;
+}
+
+.birthday-heading {
+    text-align: center;
+    padding: 34px 0 47px;
+    position: relative;
+}
+
+.mini-crown {
+    font-size: 52px;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+}
+
+.birthday-heading h1 {
+    font-size: clamp(3.7rem,8.5vw,7.6rem);
+    margin: 15px auto 10px;
+}
+
+.birthday-heading h1 em {
+    font-style: normal;
+    white-space: nowrap;
+}
+
+.heading-subtitle {
+    font-size: 1rem;
+    color: #cfb9aa;
+}
+
+/* ──────── 09. TARJETA Y PÓSTER ──────── */
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr .85fr;
+    gap: 42px;
+    align-items: center;
+    padding: 15px 10px 50px;
+}
+
+.paper-note {
+    position: relative;
+    background: #f1dabb;
+    color: #30252b;
+    box-shadow: 2px 14px 30px #0005;
+    transform: rotate(-2deg);
+    padding: 38px 45px;
+    clip-path: polygon(0 1%,6% 0,13% 1%,23% 0,32% 1%,45% 0,58% 1%,75% 0,91% 1%,100% 0,99% 99%,89% 100%,79% 99%,62% 100%,50% 99%,32% 100%,15% 99%,0 100%);
+    background-image: repeating-linear-gradient(transparent 0,transparent 29px,#ba9d8930 30px);
+}
+
+.paper-label {
+    font-size: .7rem;
+    letter-spacing: .2em;
+    font-weight: 700;
+    color: #91684d;
+}
+
+.paper-main h2 {
+    font-family: var(--font-hand);
+    font-weight: 400;
+    font-size: clamp(1.8rem,3vw,2.7rem);
+    line-height: 1.15;
+    margin: 20px 0 20px;
+}
+
+.paper-main h2 span {
+    color: #a24e3e;
+}
+
+.paper-main p {
+    line-height: 1.83;
+    font-size: .96rem;
+}
+
+.tape,.poster-tape {
+    display: block;
+    position: absolute;
+    width: 105px;
+    height: 28px;
+    background: #e2b97fa8;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(4deg);
+    z-index: 2;
+}
+
+.note-signature {
+    font-family: var(--font-hand);
+    font-size: 1.23rem;
+    color: #815447;
+}
+
+.ink-heart {
+    color: #9e4148;
+}
+
+.factory-poster {
+    height: 355px;
+    overflow: hidden;
+    background: #8195a1;
+    border: 9px solid #f7eee2;
+    border-bottom-width: 37px;
+    transform: rotate(6deg);
+    box-shadow: 5px 10px 22px #0008;
+    position: relative;
+}
+
+.poster-tape {
+    top: -7px;
+    background: #e8c79bb0;
+    z-index: 3;
+}
+
+.poster-sky {
+    height: 65%;
+    background: linear-gradient(#30465d,#c4ac9c);
+    position: absolute;
+    inset: 0 0 auto;
+}
+
+.poster-sun {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #e8bc8b;
+    box-shadow: 0 0 55px #e8bc8b;
+    border-radius: 50%;
+    top: 38px;
+    right: 42px;
+}
+
+.cloud {
+    position: absolute;
+    background: #f6e2c5;
+    border-radius: 70px;
+    opacity: .25;
+    width: 100px;
+    height: 17px;
+    top: 45px;
+    left: 10px;
+}
+
+.cloud-b {
+    top: 90px;
+    left: 110px;
+    width: 75px;
+}
+
+.factory-art {
+    position: absolute;
+    width: 100%;
+    bottom: 24px;
+    left: 0;
+}
+
+.poster-caption {
+    position: absolute;
+    bottom: -31px;
+    left: 0;
+    right: 0;
+    color: #5c514c;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 1rem;
+}
+
+/* ──────── 10. PASIONES Y TARJETAS ──────── */
+
+.section-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 15px 0 30px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-family: var(--font-hand);
+    font-weight: 400;
+    font-size: clamp(1.5rem,3vw,2.2rem);
+    margin: 0;
+}
+
+.section-heading span {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.passion-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+}
+
+.passion-card {
+    text-align: center;
+    min-height: 232px;
+    padding: 10px 18px;
+    border-right: 1px solid #6f5b5e70;
+}
+
+.passion-card:last-child {
+    border: 0;
+}
+
+.passion-icon {
+    font-size: 72px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cream);
+    font-weight: 400;
+    font-family: Georgia,serif;
+}
+
+.torn-label {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e9c69f;
+    color: #29232a;
+    font-family: var(--font-hand);
+    font-size: 1.16rem;
+    transform: rotate(-3deg);
+    clip-path: polygon(0 5%,11% 0,23% 5%,42% 0,58% 5%,78% 0,100% 5%,98% 100%,80% 95%,60% 100%,42% 95%,20% 100%,0 95%);
+}
+
+.passion-card p {
+    font-size: .87rem;
+    line-height: 1.6;
+    color: #d1bdb0;
+}
+
+.piano-keys {
+    gap: 1px;
+    font-size: 0;
+    align-items: center;
+}
+
+.piano-keys span {
+    background: #f2ddbb;
+    border: 2px solid #8d7971;
+    border-radius: 2px;
+    width: 18px;
+    height: 51px;
+    display: block;
+    position: relative;
+}
+
+.piano-keys span:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -9px;
+    width: 12px;
+    height: 32px;
+    background: #161720;
+    z-index: 1;
+}
+
+.taco-symbol {
+    position: relative;
+    transform: rotate(-20deg);
+    font-size: 98px;
+    line-height: 1;
+}
+
+.taco-symbol span {
+    font-size: 21px;
+    position: absolute;
+    top: 30%;
+    left: 53%;
+}
+
+/* ──────── 11. AGRADECIMIENTOS Y PASTEL ──────── */
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+    padding: 60px 38px 45px;
+}
+
+.thanks-note {
+    max-width: 405px;
+    padding: 28px 48px;
+    transform: rotate(-3deg);
+}
+
+.thanks-note h2 {
+    font-family: var(--font-hand);
+    font-size: 2.1rem;
+    font-weight: 400;
+    margin: 0 0 15px;
+    text-decoration: underline;
+    text-decoration-color: #ddb968;
+    text-decoration-thickness: 7px;
+    text-underline-offset: -4px;
+}
+
+.thanks-note ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 2.1;
+    font-size: .99rem;
+}
+
+.thanks-note li:before {
+    content: "✓";
+    font-weight: bold;
+    margin-right: 14px;
+}
+
+.tape-yellow {
+    background: #d8bb60a0;
+    transform: translateX(-50%) rotate(-6deg);
+}
+
+.celebration-card {
+    text-align: center;
+}
+
+.celebration-card p {
+    font-family: var(--font-hand);
+    font-size: 1.45rem;
+    line-height: 1.4;
+}
+
+.cake-art {
+    height: 175px;
+    width: 200px;
+    margin: auto;
+    position: relative;
+}
+
+.cake-base {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    right: 20px;
+    height: 75px;
+    background: #d89d76;
+    border-radius: 7px 7px 13px 13px;
+    border-bottom: 12px solid #ae6863;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    height: 25px;
+    background: #fce3c6;
+    border-radius: 100%;
+    z-index: 2;
+    box-shadow: 0 16px 0 -7px #fce3c6;
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 17px;
+    left: 3px;
+    right: 3px;
+    height: 12px;
+    background: #d8bec1;
+    border-radius: 50%;
+}
+
+.candles {
+    display: flex;
+    gap: 35px;
+    position: absolute;
+    bottom: 104px;
+    left: 55px;
+}
+
+.candles span {
+    width: 10px;
+    height: 42px;
+    background: repeating-linear-gradient(45deg,#fce3c6 0 6px,#ba5e66 6px 11px);
+    position: relative;
+}
+
+.candles span:before {
+    content: "✦";
+    font-size: 23px;
+    color: #ffbd62;
+    position: absolute;
+    top: -26px;
+    left: -6px;
+    animation: twinkle .7s infinite alternate;
+}
+
+.celebrate-button {
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+/* ──────── 12. PIANO INTERACTIVO ──────── */
+
+.piano-section {
+    margin-top: 55px;
+    padding: 30px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    border: 1px solid #82656a90;
+    border-radius: 18px;
+    background: #1a1b29;
+}
+
+.piano-section h2 {
+    font-family: var(--font-hand);
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin: 9px 0;
+}
+
+.piano-section p {
+    color: #c6ada8;
+    max-width: 365px;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+.piano-widget {
+    display: flex;
+    flex-shrink: 0;
+    box-shadow: 0 8px 16px #0006;
+    border: 5px solid #080a11;
+    border-radius: 6px;
+    background: #080a11;
+}
+
+.piano-key {
+    height: 120px;
+    width: 37px;
+    background: linear-gradient(#fff8e8,#d9c7b0);
+    border: 1px solid #98918d;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+
+.piano-key:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 70px;
+    background: #191921;
+    top: 0;
+    right: -11px;
+    z-index: 2;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 3px 2px #0006;
+}
+
+.piano-key:nth-child(3):after,.piano-key:nth-child(7):after,.piano-key:last-child:after {
+    display: none;
+}
+
+.piano-key span {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    color: #6f6260;
+    font-size: 10px;
+}
+
+.piano-key:active,.piano-key.is-playing {
+    background: #f4c98a;
+}
+
+/* ──────── 13. PIE DE PÁGINA Y CONFETI ──────── */
+
+.birthday-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 1.22rem;
+    margin: 65px 0 0;
+    color: #ead5b9;
+}
+
+.birthday-footer span {
+    color: var(--gold);
+}
+
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+/* ──────── DISEÑO RESPONSIVO — PANTALLAS PEQUEÑAS ──────── */
+
+@media (max-width:760px) {
+    .cover-scene {
+        justify-content: flex-start;
+        padding-top: 76px;
+    }
+
+    .doodle-hardhat {
+        left: 3%;
+        top: 9%;
+        width: 60px;
+    }
+
+    .doodle-gear {
+        right: 4%;
+        top: 12%;
+        font-size: 64px;
+    }
+
+    .doodle-factory {
+        right: 0;
+        top: 48%;
+        width: 78px;
+    }
+
+    .doodle-piano {
+        left: 2%;
+        bottom: 7%;
+        width: 90px;
+    }
+
+    .doodle-taco {
+        left: -2%;
+        top: 58%;
+        width: 68px;
+    }
+
+    .cover-heading h1 {
+        font-size: clamp(3.5rem,14vw,5rem);
+    }
+
+    .cover-heading p {
+        font-size: .95rem;
+    }
+
+    .envelope-area {
+        margin-top: 70px;
+    }
+
+    .open-cta {
+        margin-top: 32px;
+    }
+
+    .birthday-content {
+        padding: 20px 18px 50px;
+    }
+
+    .birthday-heading {
+        padding: 45px 0 30px;
+    }
+
+    .birthday-heading h1 {
+        font-size: clamp(3rem,12.7vw,5.5rem);
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 12px 8px 40px;
+    }
+
+    .paper-note {
+        padding: 30px;
+    }
+
+    .factory-poster {
+        height: 260px;
+        width: 65%;
+        max-width: 340px;
+        margin: 10px auto;
+    }
+
+    .passion-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 17px 0;
+    }
+
+    .passion-card:nth-child(2) {
+        border: 0;
+    }
+
+    .passion-card {
+        padding: 8px 12px;
+        min-height: 215px;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 55px 16px 25px;
+    }
+
+    .thanks-note {
+        margin: auto;
+        width: 100%;
+    }
+
+    .piano-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 12px;
+    }
+
+    .piano-section p {
+        margin: 0 auto;
+    }
+
+    .birthday-footer {
+        font-size: 1.1rem;
+    }
+
+    .topbar-label {
+        font-size: .55rem;
+    }
+}
+
+/* ──────── DISEÑO RESPONSIVO — PANTALLAS PEQUEÑAS ──────── */
+
+@media (max-width:420px) {
+    .cover-heading h1 {
+        font-size: 3.3rem;
+    }
+
+    .cover-heading p br {
+        display: none;
+    }
+
+    .envelope-button {
+        width: 82vw;
+        height: 54vw;
+    }
+
+    .cover-scene {
+        padding-top: 90px;
+    }
+
+    .small-kicker {
+        font-size: .56rem;
+    }
+
+    .birthday-heading h1 {
+        font-size: 3rem;
+    }
+
+    .birthday-heading h1 em {
+        white-space: normal;
+    }
+
+    .factory-poster {
+        width: 80%;
+    }
+
+    .paper-main p {
+        font-size: .91rem;
+    }
+
+    .piano-key {
+        width: 33px;
+        height: 105px;
+    }
+
+    .piano-key:after {
+        width: 17px;
+        height: 61px;
+        right: -9px;
+    }
+
+    .passion-card p {
+        font-size: .82rem;
+    }
+}
+
+/* ──────── ACCESIBILIDAD — MOVIMIENTO REDUCIDO ──────── */
+
+@media (prefers-reduced-motion:reduce) {
+    *,*:before,*:after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* ──────── AJUSTES FINALES DE LA ANIMACIÓN (V2 / V3) ──────── */
+
+.envelope-button .envelope-flap {
+    transition-duration: 1s;
+}
+
+.envelope-button .letter {
+    transition-duration: 1.45s;
+}
+
+.envelope-button.opening .letter {
+    transition-delay: .55s;
+    transform: translateY(-82%);
+}
+
+.cover-page.page-leaving {
+    animation: coverFadeOut .55s ease-in forwards;
+}
+
+@keyframes coverFadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* ──────── 14. CONTROLES DE MÚSICA ──────── */
+
+.music-controls {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 110;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.music-toggle,.music-start {
+    background: #f1dabb;
+    color: #30252b;
+    border: 1px solid #c59a72;
+    border-radius: 100px;
+    padding: 11px 18px;
+    font: 600 .85rem var(--font-body);
+    cursor: pointer;
+    box-shadow: 0 7px 26px #0007;
+}
+
+.music-toggle:hover,.music-start:hover {
+    background: #ffeacb;
+}
+
+.music-prompt {
+    max-width: min(310px,calc(100vw - 30px));
+    background: #24212e;
+    border: 1px solid #bd9a7b;
+    border-radius: 13px;
+    padding: 14px;
+    box-shadow: 0 10px 35px #0009;
+    text-align: center;
+}
+
+.music-prompt p {
+    margin: 0 0 10px;
+    font-size: .85rem;
+    line-height: 1.5;
+    color: #f1dabb;
+}
+
+.music-prompt[hidden] {
+    display: none;
+}
+
+/* ──────── ACCESIBILIDAD — MOVIMIENTO REDUCIDO ──────── */
+
+@media (prefers-reduced-motion:reduce) {
+    .envelope-button .envelope-flap,.envelope-button .letter {
+        transition-duration: .01ms;
+    }
+}
+
+.cover-heading {
+    transition: opacity .38s ease,visibility 0s linear .38s;
+}
+
+.cover-page.envelope-opening .cover-heading {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cover-page.envelope-opening .envelope-area {
+    z-index: 10;
+}
+
+
+
+
+.autor-footer {
+    position: relative;
+    display: block;
+    clear: both;
+
+    width: 100%;
+    margin: 60px 0 0;
+    padding: 25px 15px;
+
+    text-align: center;
+    background: #131f35;
+    color: #f5eee4;
+    border-top: 1px solid #465168;
+}
+
+.autor-footer p:first-child {
+    color: #cfb37c;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.autor-footer p {
+    margin: 8px 0;
+}
+
+.autor-footer small {
+    color: #aab3c6;
+    font-size: 12px;
+}
+
+/* Fotografía dentro del marco Polaroid */
+.poster-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Conservar el marco y la inclinación */
+.factory-poster {
+    position: relative;
+    overflow: hidden;
+    transform: rotate(6deg);
+}
+
+/* Mantener visible la cinta adhesiva */
+.poster-tape {
+    z-index: 3;
+}
+
+/* ==========================================
+   DECORACIONES - SEGUNDA PÁGINA
+========================================== */
+
+.letter-page {
+    position: relative;
+    isolation: isolate;
+}
+
+.birthday-decorations {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1050px;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.birthday-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo general */
+.birthday-doodle {
+    position: absolute;
+    color: #a68182;
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.birthday-doodle svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Engranaje superior izquierdo */
+.decor-gear-1 {
+    top: 90px;
+    left: 9%;
+    width: 90px;
+    height: 90px;
+}
+
+/* Casco de ingeniería */
+.decor-helmet {
+    top: 285px;
+    left: 4%;
+    width: 115px;
+    transform: rotate(-12deg);
+}
+
+/* Fábrica derecha */
+.decor-factory {
+    top: 280px;
+    right: 4%;
+    width: 145px;
+}
+
+/* Taco izquierdo */
+.decor-taco {
+    top: 515px;
+    left: 5%;
+    width: 115px;
+    transform: rotate(-15deg);
+}
+
+/* Engranaje derecho */
+.decor-gear-2 {
+    top: 560px;
+    right: 5%;
+    width: 75px;
+    height: 75px;
+}
+
+/* Música */
+.decor-music-1 {
+    top: 110px;
+    right: 13%;
+    font-size: 48px;
+}
+
+.decor-music-2 {
+    top: 720px;
+    left: 9%;
+    font-size: 47px;
+}
+
+/* Destellos */
+.decor-star-1 {
+    top: 270px;
+    left: 16%;
+    font-size: 40px;
+}
+
+.decor-star-2 {
+    top: 160px;
+    right: 7%;
+    font-size: 36px;
+}
+
+.decor-star-3 {
+    top: 760px;
+    right: 12%;
+    font-size: 40px;
+}
+
+/* ==========================================
+   ADAPTACIÓN PARA CELULARES
+========================================== */
+
+@media (max-width: 900px) {
+
+    .birthday-decorations {
+        height: 950px;
+    }
+
+    .birthday-doodle {
+        opacity: 0.35;
+    }
+
+    .decor-gear-1 {
+        left: 2%;
+        width: 55px;
+        height: 55px;
+    }
+
+    .decor-helmet {
+        left: 1%;
+        width: 65px;
+    }
+
+    .decor-factory {
+        right: 1%;
+        width: 70px;
+    }
+
+    .decor-taco {
+        left: 2%;
+        width: 65px;
+    }
+
+    .decor-gear-2 {
+        right: 2%;
+        width: 48px;
+        height: 48px;
+    }
+
+    .decor-music-1,
+    .decor-music-2 {
+        font-size: 29px;
+    }
+
+    .decor-star-1,
+    .decor-star-2,
+    .decor-star-3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Ocultar elementos que pueden
+       estorbar en pantallas pequeñas */
+    .decor-helmet,
+    .decor-taco,
+    .decor-gear-2,
+    .decor-star-1,
+    .decor-star-3 {
+        display: none;
+    }
+
+    .birthday-doodle {
+        opacity: 0.25;
+    }
+
+    .decor-gear-1 {
+        top: 120px;
+        left: 2%;
+    }
+
+    .decor-music-1 {
+        top: 160px;
+        right: 3%;
+    }
+
+    .decor-factory {
+        top: 570px;
+        right: 2%;
+    }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10121d" />
+  <meta name="description" content="Una carta de cumpleaños con mucho cariño." />
+  <title>¡Feliz cumpleaños! 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+
+
+
+<body class="letter-page">
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <!-- AGREGA TU CANCIÓN: guarda el MP3 en musica/cumpleanos.mp3, o cambia src. -->
+  <audio id="birthdayMusic" src="musica/cumpleanos.mp3" preload="auto" loop></audio>
+  <div class="music-controls" aria-label="Controles de música">
+    <div class="music-prompt" id="musicPrompt" hidden>
+      <p>🎵 Tenemos música para acompañar tu sorpresa.</p>
+      <button class="music-start" id="musicStart" type="button">♫ Escuchar canción</button>
+    </div>
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">♫ Reproducir música</button>
+  </div>
+  <div class="ambient glow-left"></div><div class="ambient glow-right"></div>
+  
+<!-- DECORACIONES DE LA SEGUNDA PÁGINA -->
+<div class="birthday-decorations" aria-hidden="true">
+
+  <!-- Engranaje superior izquierdo -->
+  <div class="birthday-doodle decor-gear-1">
+    <svg viewBox="0 0 100 100">
+      <path d="M43 5 H57 V16
+               L68 20 L76 12 L88 24 L80 32
+               L84 43 H95 V57 H84
+               L80 68 L88 76 L76 88 L68 80
+               L57 84 V95 H43 V84
+               L32 80 L24 88 L12 76 L20 68
+               L16 57 H5 V43 H16
+               L20 32 L12 24 L24 12 L32 20
+               L43 16 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"/>
+      <circle cx="50" cy="50" r="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"/>
+    </svg>
+  </div>
+
+  <!-- Casco de ingeniería -->
+  <div class="birthday-doodle decor-helmet">
+    <svg viewBox="0 0 120 90">
+      <path d="M22 62 C20 29 40 12 60 12
+               C84 12 101 32 99 62"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"/>
+      <path d="M60 13 V40 M42 19 L48 44
+               M78 19 L72 44"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"/>
+      <path d="M15 63 Q60 51 105 63
+               Q115 66 109 74
+               Q60 85 11 74
+               Q5 67 15 63 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"/>
+    </svg>
+  </div>
+
+  <!-- Fábrica -->
+  <div class="birthday-doodle decor-factory">
+    <svg viewBox="0 0 140 120">
+      <path d="M10 105 V54
+               L38 70 V54
+               L66 70 V54
+               L90 68 V20
+               H116 V105 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"/>
+      <path d="M20 84 H33 V96 H20 Z
+               M46 84 H59 V96 H46 Z
+               M72 84 H85 V96 H72 Z
+               M99 84 H110 V96 H99 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"/>
+      <path d="M5 108 H135"
+            stroke="currentColor"
+            stroke-width="3"/>
+    </svg>
+  </div>
+
+  <!-- Taco -->
+  <div class="birthday-doodle decor-taco">
+    <svg viewBox="0 0 120 90">
+      <path d="M12 72
+               Q20 15 65 20
+               Q100 22 108 72 Z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"/>
+      <path d="M22 60
+               Q35 40 48 51
+               Q57 34 69 49
+               Q85 37 98 60"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"/>
+      <path d="M12 73 Q60 85 108 73"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4"/>
+    </svg>
+  </div>
+
+  <!-- Engranaje inferior derecho -->
+  <div class="birthday-doodle decor-gear-2">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="29"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="7"/>
+      <circle cx="50" cy="50" r="8"
+              fill="currentColor"/>
+      <path d="M50 5 V21 M50 79 V95
+               M5 50 H21 M79 50 H95
+               M18 18 L30 30 M70 70 L82 82
+               M18 82 L30 70 M70 30 L82 18"
+            stroke="currentColor"
+            stroke-width="7"/>
+    </svg>
+  </div>
+
+  <!-- Notas musicales -->
+  <div class="birthday-doodle decor-music-1">♫</div>
+  <div class="birthday-doodle decor-music-2">♪</div>
+
+  <!-- Destellos -->
+  <div class="birthday-doodle decor-star-1">✧</div>
+  <div class="birthday-doodle decor-star-2">✧</div>
+  <div class="birthday-doodle decor-star-3">✧</div>
+
+</div>
+
+  <main class="birthday-content">
+    <div class="topbar"><a href="index.html" class="back-link">← Volver al sobre</a><span class="topbar-label">UNA CARTA PARA TI <span aria-hidden="true">♡</span></span></div>
+    <header class="birthday-heading">
+      <span class="mini-crown" aria-hidden="true">♕</span>
+      <p class="small-kicker">HOY EL DÍA ES TODO TUYO</p>
+      <h1>¡Feliz <em>Cumpleaños!</em></h1>
+      <h1>Ing.Ricardo Lima</h1>
+      <p class="heading-subtitle">Un pequeño homenaje a alguien que hace grandes cosas.</p>
+    </header>
+
+    <section class="hero-grid">
+      <div class="paper-note paper-main">
+        <span class="tape"></span>
+        <span class="paper-label">UN MENSAJE ESPECIAL</span>
+        <h2>Hoy no se trabaja…<br /><span>¡hoy se celebra!</span></h2>
+        <p>Dicen que siempre estás en modo producción: resolviendo problemas, organizando proyectos y dando el máximo en cada jornada. Pero hoy toca hacer una pausa, disfrutar y recordar lo mucho que vales.</p>
+        <p>Que nunca te falten los sueños por construir, la música para acompañarte y, por supuesto, unos buenos tacos para celebrar. <span class="ink-heart">♥</span></p>
+        <span class="note-signature">Con mucho cariño ✨</span>
+      </div>
+      
+      
+        <!-- Fotografía del festejado -->
+          <div class="factory-poster">
+            <span class="poster-tape"></span>
+
+            <img
+             src="imagenes/festejado.jpg"
+             alt="Fotografía del festejado"
+             class="poster-photo"
+              />
+
+  <span class="poster-caption">
+    Siempre construyendo algo grande.
+  </span>
+</div>
+
+    </section>
+
+    <section class="passions-section" aria-labelledby="passions-title">
+      <div class="section-heading"><span>✧</span><h2 id="passions-title">Las cuatro facetas que te hacen único</h2><span>✧</span></div>
+      <div class="passion-grid">
+        <article class="passion-card"><div class="passion-icon">⚙</div><span class="torn-label">Ingeniero industrial</span><p>Porque siempre tienes una idea, una solución y un plan para mejorar todo.</p></article>
+        <article class="passion-card"><div class="passion-icon piano-keys" aria-hidden="true"><span>▮</span><span>▮</span><span>▮</span><span>▮</span></div><span class="torn-label">El pianista</span><p>Porque detrás de los pendientes también hay espacio para la música.</p></article>
+        <article class="passion-card"><div class="passion-icon taco-symbol">☾<span>✦</span></div><span class="torn-label">El taquero</span><p>Emprendedor de corazón. ¡Que nunca falten clientes ni salsa!</p></article>
+        <article class="passion-card"><div class="passion-icon">▥</div><span class="torn-label">El de la maquila</span><p>Porque hasta el reloj sabe que siempre estás dando el extra.</p></article>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="paper-note thanks-note"><span class="tape tape-yellow"></span><h2>Gracias por…</h2><ul><li>Tu dedicación</li><li>Tu disciplina y constancia</li><li>Tu esfuerzo de todos los días</li><li>Tu pasión por lo que haces</li><li>Y, sobre todo, por ser tú ♡</li></ul></div>
+      <div class="celebration-card"><div class="cake-art" aria-hidden="true"><div class="candles"><span></span><span></span><span></span></div><div class="cake-top"></div><div class="cake-base"></div><div class="cake-plate"></div></div><p>Un año más de sueños,<br />historias y logros por venir.</p><button class="celebrate-button" id="celebrate" type="button">🎉 ¡Celebrar!</button></div>
+    </section>
+
+    <section class="piano-section" aria-labelledby="piano-title"><div><span class="small-kicker">UN DETALLE MÁS</span><h2 id="piano-title">Una melodía para el festejado</h2><p>Haz clic en las teclas. Porque una vida con música siempre es mejor.</p></div><div class="piano-widget" role="group" aria-label="Mini piano interactivo"><button class="piano-key" data-note="C4" aria-label="Do"><span>Do</span></button><button class="piano-key" data-note="D4" aria-label="Re"><span>Re</span></button><button class="piano-key" data-note="E4" aria-label="Mi"><span>Mi</span></button><button class="piano-key" data-note="F4" aria-label="Fa"><span>Fa</span></button><button class="piano-key" data-note="G4" aria-label="Sol"><span>Sol</span></button><button class="piano-key" data-note="A4" aria-label="La"><span>La</span></button><button class="piano-key" data-note="B4" aria-label="Si"><span>Si</span></button><button class="piano-key" data-note="C5" aria-label="Do alto"><span>Do</span></button></div></section>
+
+    <footer class="birthday-footer"><span>✦</span><p>Que este nuevo año sea tu mejor proyecto. <strong>¡Muchas felicidades!</strong></p><span>✦</span></footer>
+  </main>
+
+  <footer class="autor-footer">
+  <p>✦ Hecho con cariño ✦</p>
+  <p>
+    Diseñado por:
+    <span id="nombreAutor">Jaime Vazquez</span>
+  </p>
+  <small>© 2026 · Una felicitación especial del Ingeniero en Software</small>
+</footer>
+
+</body>
+</html>
