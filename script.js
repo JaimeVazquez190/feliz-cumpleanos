@@ -82,7 +82,7 @@ if (birthdayMusic) {
 
   const syncMusicUI = () => {
     if (musicToggle) {
-      musicToggle.textContent = birthdayMusic.paused ? '♫ Reproducir música' : '❚❚ Pausar música';
+      musicToggle.textContent = birthdayMusic.paused ? '▶' : '❚❚';
       musicToggle.setAttribute('aria-pressed', String(!birthdayMusic.paused));
     }
     if (musicPrompt) musicPrompt.hidden = !birthdayMusic.paused;
@@ -112,4 +112,30 @@ if (birthdayMusic) {
   syncMusicUI();
   // Se intenta al ingresar, sin retrasar la aparición de la página.
   playMusic();
+}
+
+/* Icono circular de reproducción y pausa */
+
+const audioCumple = document.getElementById("birthdayMusic");
+const botonMusica = document.getElementById("musicToggle");
+
+if (audioCumple && botonMusica) {
+    function actualizarIconoMusica() {
+        const reproduciendo = !audioCumple.paused;
+
+        botonMusica.textContent = reproduciendo ? "⏸" : "▶";
+        botonMusica.setAttribute(
+            "aria-label",
+            reproduciendo ? "Pausar música" : "Reproducir música"
+        );
+        botonMusica.setAttribute("aria-pressed", String(reproduciendo));
+        botonMusica.title = reproduciendo
+            ? "Pausar música"
+            : "Reproducir música";
+    }
+
+    audioCumple.addEventListener("play", actualizarIconoMusica);
+    audioCumple.addEventListener("pause", actualizarIconoMusica);
+
+    actualizarIconoMusica();
 }

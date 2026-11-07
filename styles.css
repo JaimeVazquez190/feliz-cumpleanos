@@ -1129,52 +1129,63 @@ a {
 
 /* ──────── 14. CONTROLES DE MÚSICA ──────── */
 
+/* ====================================
+   CONTROL DE MÚSICA COMPACTO
+==================================== */
+
 .music-controls {
     position: fixed;
-    right: 16px;
-    bottom: 16px;
+    top: 15px;
+    right: 15px;
+    bottom: auto;
+
     z-index: 110;
     display: flex;
-    align-items: flex-end;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-end;
+    gap: 8px;
 }
 
-.music-toggle,.music-start {
+/* Botón pequeño */
+.music-toggle {
     background: #f1dabb;
     color: #30252b;
     border: 1px solid #c59a72;
-    border-radius: 100px;
-    padding: 11px 18px;
-    font: 600 .85rem var(--font-body);
+    border-radius: 50px;
+
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+
     cursor: pointer;
-    box-shadow: 0 7px 26px #0007;
+    box-shadow: 0 4px 12px #0005;
 }
 
-.music-toggle:hover,.music-start:hover {
+.music-toggle:hover {
     background: #ffeacb;
 }
 
+/* Mensaje cuando el navegador bloquea
+   la reproducción automática */
 .music-prompt {
-    max-width: min(310px,calc(100vw - 30px));
-    background: #24212e;
-    border: 1px solid #bd9a7b;
-    border-radius: 13px;
-    padding: 14px;
-    box-shadow: 0 10px 35px #0009;
-    text-align: center;
+    max-width: 260px;
+    padding: 12px;
+    font-size: 12px;
 }
 
-.music-prompt p {
-    margin: 0 0 10px;
-    font-size: .85rem;
-    line-height: 1.5;
-    color: #f1dabb;
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    .music-controls {
+        top: 10px;
+        right: 10px;
+    }
+
+    .music-toggle {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
 }
 
-.music-prompt[hidden] {
-    display: none;
-}
 
 /* ──────── ACCESIBILIDAD — MOVIMIENTO REDUCIDO ──────── */
 
@@ -1443,5 +1454,47 @@ a {
     .decor-factory {
         top: 570px;
         right: 2%;
+    }
+}
+
+/* Botón de música pequeño y circular */
+
+.music-controls {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    bottom: auto;
+    z-index: 110;
+}
+
+.music-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #f1dabb;
+    color: #30252b;
+    border: 1px solid #c59a72;
+
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px #0005;
+}
+
+.music-toggle:hover {
+    background: #ffeacb;
+    transform: scale(1.08);
+}
+
+@media (max-width: 600px) {
+    .music-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
     }
 }

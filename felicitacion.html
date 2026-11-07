@@ -20,13 +20,23 @@
   <canvas id="confetti" aria-hidden="true"></canvas>
   <!-- AGREGA TU CANCIÓN: guarda el MP3 en musica/cumpleanos.mp3, o cambia src. -->
   <audio id="birthdayMusic" src="musica/cumpleanos.mp3" preload="auto" loop></audio>
-  <div class="music-controls" aria-label="Controles de música">
-    <div class="music-prompt" id="musicPrompt" hidden>
-      <p>🎵 Tenemos música para acompañar tu sorpresa.</p>
-      <button class="music-start" id="musicStart" type="button">♫ Escuchar canción</button>
-    </div>
-    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">♫ Reproducir música</button>
-  </div>
+  
+<!-- CONTROL DE MÚSICA -->
+<div class="music-controls" aria-label="Controles de música">
+
+    <button
+        id="musicToggle"
+        class="music-toggle"
+        type="button"
+        aria-label="Reproducir música"
+        aria-pressed="false"
+        title="Reproducir música">
+        ▶
+    </button>
+
+</div>
+
+    
   <div class="ambient glow-left"></div><div class="ambient glow-right"></div>
   
 <!-- DECORACIONES DE LA SEGUNDA PÁGINA -->
